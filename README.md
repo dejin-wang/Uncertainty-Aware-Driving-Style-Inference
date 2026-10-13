@@ -6,24 +6,6 @@ Official implementation of the paper:
 
 **Authors:** Dejin Wang and Seyede Fatemeh Ghoreishi
 
-## Overview
-
-This work introduces a teacher–student framework for online driving-style inference from short state-only observation windows, with an explicit representation of inference uncertainty.
-
-Driving style is represented by six bounded continuous operational coordinates:
-
-| Coordinate | Symbol | Support |
-|---|---|---|
-| Aggressiveness | z1 | [0, 0.9] |
-| Impulsivity | z2 | [0, 0.9] |
-| Risk tolerance | z3 | [0, 0.9] |
-| Rule conformity | z4 | [0, 0.9] |
-| Prospectiveness | z5 | [0.6, 0.99] |
-| Expertness | z6 | [0.75, 1.0] |
-
-A style-conditioned teacher policy generates labeled trajectory–style pairs over the continuous style space. A Transformer-based probabilistic student estimates a factorized posterior over the six coordinates in a single forward pass, producing both style estimates and dimension-wise uncertainty intervals.
-
-A boundary-aware training objective discourages predicted intervals from extending beyond the valid style bounds. At deployment, these intervals are intersected with the valid style support and propagated through the style-conditioned policy to construct conservative one-step action envelopes.
 
 ## Simulation Environment
 
